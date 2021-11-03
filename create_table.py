@@ -1,5 +1,5 @@
 import psycopg2
-#テーブル作成
+
 def create_music_table():
     conn = psycopg2.connect("host=" + "localhost" +
                            " dbname=" + "fc" +
