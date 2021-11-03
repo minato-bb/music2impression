@@ -1,6 +1,3 @@
-# music2impression
-# impression2music
-
 ## 機能
 * 印象を入力することでその印象に合った楽曲の提示
 * 楽曲名を入力することでその印象を提示
