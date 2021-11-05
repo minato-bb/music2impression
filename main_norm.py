@@ -1,6 +1,7 @@
 import argparse
 import norm
 import norm_copy
+import word2vec
 
 #内積計算
 # python main_norm.py music_impression -i 曲名
@@ -11,7 +12,7 @@ def music_impression(name):
         norm_copy.distance(name)
     else:
         norm.distance(name)
-    return 
+    return #name(印象語)を与えると最も近い曲を返す
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
