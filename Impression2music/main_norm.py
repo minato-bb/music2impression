@@ -1,10 +1,9 @@
 import argparse
 import norm
 import norm_copy
-import word2vec
 
 #内積計算
-# python main_norm.py music_impression -i 曲名
+# python Impression2music/main_norm.py music_impression -i 曲名
 
 def music_impression(name):
     word = ["cool", "relax", "excited", "sad", "fierce"]
