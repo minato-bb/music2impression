@@ -7,7 +7,6 @@ import impression
 # python add_table.py add_table -i id
 def add_table(id):
     create_table.create_music_table()
-    print("create table")
     
     ids = impression.getTrackIDs('21zv57uvde5x7gw5rqkbs55ty', '{}'.format(id))
 
