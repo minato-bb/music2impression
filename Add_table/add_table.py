@@ -4,7 +4,7 @@ import save_db
 import impression
 # import normalization
 
-# python add_table.py add_table -i id
+# python Add_table/add_table.py add_table -i id
 def add_table(id):
     create_table.create_music_table()
     
