@@ -8,6 +8,7 @@ psycopg2-binary = "*"
 spotipy = "*"
 pandas = "*"
 gensim = "*"
+opencv-python = "*"
 
 [dev-packages]
 
