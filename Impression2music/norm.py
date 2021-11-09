@@ -11,7 +11,7 @@ def distance(name):
     conn.commit()
     print("The number of music is ", len(m))
     conn.commit()
-    cur.execute("SELECT music.name, music.artist, distance(music.danceability, music.acousticness, music.energy, music.liveness, music.loudness, music.speechiness, music.tempo, music.valence, impression_norm.danceability, impression_norm.acousticness, impression_norm.energy, impression_norm.liveness, impression_norm.loudness, impression_norm.speechiness, impression_norm.tempo, impression_norm.valence) AS score FROM music, impression_norm WHERE impression_norm.word = '{}' ORDER BY score ASC FETCH FIRST 10 ROWS ONLY".format(name))
+    cur.execute("SELECT music.name, music.artist, distance(music.danceability, music.acousticness, music.energy, music.liveness, music.loudness, music.speechiness, music.tempo, music.valence, impression_norm.danceability, impression_norm.acousticness, impression_norm.energy, impression_norm.liveness, impression_norm.loudness, impression_norm.speechiness, impression_norm.tempo, impression_norm.valence) AS score FROM music, impression_norm WHERE impression_norm.word = '{}' ORDER BY score ASC FETCH FIRST 1 ROWS ONLY".format(name))
     n = cur.fetchall()
     conn.commit()
     print()
