@@ -2,6 +2,9 @@ import numpy as np
 import pandas as pd
 from pandas import plotting
 from scipy.spatial import distance
+import os
+import cv2
+
 
 def movie2impression():
     color_image_scale = pd.read_csv("/Users/babaminato/fc/color_img_scale.csv", index_col="Unnamed: 0")
