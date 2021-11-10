@@ -71,16 +71,8 @@ def movie2impression():
             #130色から最も近い色を算出
             pixel = []
             for i in range(0, len(df)):
-                dist = 9999
-                for color_num in range(0, len(color)):
-                    color_image = color.iloc[color_num]
-                    pic = df.iloc[i]
-                    distance = np.linalg.norm(pic - color_image)
-                    if distance < dist:
-                        num = color_num
-                        dist = distance
-                
-                pixel.append(num)
+                pixel_dict = {n : np.linalg.norm(df.iloc[i] - color.iloc[n]) for n in range(0, len(color))}
+                pixel.append(min(pixel_dict, key=pixel_dict.get))
 
 
             #130色のうち最も近い色に置換
