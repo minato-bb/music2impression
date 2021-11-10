@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 from pandas import plotting
 from scipy.spatial import distance
+import cv2
+import os
 
 def movie2impression():
     color_image_scale = pd.read_csv("/Users/babaminato/fc/color_img_scale.csv", index_col="Unnamed: 0")
@@ -66,7 +68,7 @@ def movie2impression():
             df = pd.DataFrame(pixel_dic)
 
 
-            #130色から最も近い色を算出
+            #130色から最も近い色のフレームを算出
             pixel = []
             for i in range(0, len(df)):
                 dist = 9999
