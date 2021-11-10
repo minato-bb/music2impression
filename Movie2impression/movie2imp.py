@@ -36,13 +36,6 @@ def movie2impression():
             #画像読み込み
             img_ = cv2.imread(target_img_path)
             
-            if n % 100 == 0:
-                print(target_file)
-            elif n == 0:
-                print(target_file)
-            else:
-                continue
-            
             #resize
             def scale_to_width(img, width):
                 h, w = img.shape[:2]
