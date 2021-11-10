@@ -68,7 +68,7 @@ def movie2impression():
             df = pd.DataFrame(pixel_dic)
 
 
-            #130色から最も近い色を算出
+            #130色から最も近い色のフレームを算出
             pixel = []
             for i in range(0, len(df)):
                 pixel_dict = {n : np.linalg.norm(df.iloc[i] - color.iloc[n]) for n in range(0, len(color))}
