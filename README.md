@@ -19,10 +19,10 @@ python add_table.py add_table -i 'id'
 
 4. ターミナルで以下の文を実行(印象語から検索するときは上、楽曲の印象を調べたいときは下)
 ```
-python main_norm.py music_impression -i '印象語'
+python Impression2music/main_norm.py music_impression -i '印象語'
 ```
 ```
-python main_norm.py music_impression -i '楽曲名'
+python Impression2music/main_norm.py music_impression -i '楽曲名'
 ```
 ### 印象語の候補
 * cool
