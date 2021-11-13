@@ -3,7 +3,7 @@ import os
 
 #動画から画像を取得
 def split_frames():
-    TARGET_DIR ='/Users/babaminato/music2impression/Data/Movie'
+    TARGET_DIR ='/Data/Movie'
     dir_name = os.listdir(TARGET_DIR)
 
     for i in dir_name:
@@ -17,7 +17,7 @@ def split_frames():
         return
 
     basename="img"
-    NEW_DIR='/Users/babaminato/music2impression/Data/Img/frame'
+    NEW_DIR='/Data/Img/frame'
     os.makedirs(NEW_DIR, exist_ok=True)
     base_path = os.path.join(NEW_DIR, basename)
     fps = int(cap.get(cv2.CAP_PROP_FPS))
