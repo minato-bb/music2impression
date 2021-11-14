@@ -7,6 +7,7 @@ def vector(word):
     for i in df["Unnamed: 0"]:
         color_imp.append(i)
 
+    #musicの印象語
     music_imp = ["威厳", "悲しい", "哀愁", "冷静", "優雅", "幸福", "興奮", "活発"]
     sentence = [color_imp, music_imp]
     model_music = word2vec.Word2Vec(sentence,vector_size=400,min_count=1)
