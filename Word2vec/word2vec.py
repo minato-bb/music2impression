@@ -19,4 +19,26 @@ def vector(word):
             value = model_music.wv.similarity(word, i)
             name = i
 
-    return name
+    if name in ["強調された", "雄大な", "武骨な", "活気のある", "堅牢な", "活発な"]:
+        return "vigorous"
+
+    elif name in ["興奮した", "刺激的な", "勢いのある", "情熱的な", "扇情的な", "高揚した"]:
+        return "exciting"
+
+    elif name in ["明るい", "陽気な", "快活な", "幸福な", "朗らかな", "楽しい"]:
+        return "happy"
+
+    elif name in [ "繊細な", "空想的な", "優美な", "趣のある", "幻想的な"]:
+        return "sentimental"
+
+    elif name in ["穏やかな", "ゆったりとした", "叙情的な", "静かな","落ち着いた", "やわらげる", "平静な"]:
+        return "calm"
+
+    elif name in ["素敵な", "憧れ", "思慕"]:
+        return "graceful"
+
+    elif name in ["暗い","憂鬱な", "悲惨な", "挫折した", "喪に服した", "哀れな", "悲しい", "悲劇的な"]:
+        return "sad"
+
+    elif name in ["荘厳な", "威厳のある", "高尚な", "神聖な", "由々しい", "謹直な", "厳粛な", "気高い"]:
+        return "dignified"
