@@ -11,12 +11,18 @@ valence float
 );
 
 INSERT INTO impression_norm (word, danceability, acousticness, energy, liveness, loudness, speechiness, tempo, valence)
-VALUES ('excited', 0.559412, 0.238991, 0.753471, 0.177212, -6.361706, 0.107300, 128.399882, 0.565765);
+VALUES ('dignified', 0.398357, 0.655872, 0.422450, 0.160421, -12.044429, 0.066843, 107.533857, 0.30910);
 INSERT INTO impression_norm (word, danceability, acousticness, energy, liveness, loudness, speechiness, tempo, valence)
-VALUES ('cool', 0.533333, 0.176618, 0.796208, 0.214154, -5.769667, 0.071800, 124.457208, 0.456937);
+VALUES ('sad', 0.541389, 0.447167, 0.522511, 0.139822, -8.48150, 0.037811, 105.372500, 0.428417);
 INSERT INTO impression_norm (word, danceability, acousticness, energy, liveness, loudness, speechiness, tempo, valence)
-VALUES ('relax', 0.533500, 0.420415, 0.604963, 0.161387, -7.346125, 0.069258, 121.235208, 0.504838);
+VALUES ('sentimental', 0.493318, 0.404653, 0.534103, 0.189091, -7.749000, 0.042405, 119.049182, 0.421559);
 INSERT INTO impression_norm (word, danceability, acousticness, energy, liveness, loudness, speechiness, tempo, valence)
-VALUES ('sad', 0.509000, 0.403961, 0.593177, 0.183709, -6.792652, 0.046196, 119.219565, 0.408422);
+VALUES ('calm', 0.547235, 0.429712, 0.470189, 0.155441, -9.610176, 0.048106, 116.012000, 0.353512);
 INSERT INTO impression_norm (word, danceability, acousticness, energy, liveness, loudness, speechiness, tempo, valence)
-VALUES ('fierce', 0.537160, 0.136491, 0.823628, 0.182200, -5.780800, 0.099324, 132.391520, 0.505112);
+VALUES ('graceful', 0.414444, 0.522503, 0.432750, 0.144900, -11.775444, 0.040639, 111.909889, 0.314500);
+INSERT INTO impression_norm (word, danceability, acousticness, energy, liveness, loudness, speechiness, tempo, valence)
+VALUES ('happy', 0.527143, 0.096779, 0.853857, 0.202486, -4.543429, 0.088233, 137.614333, 0.619476);
+INSERT INTO impression_norm (word, danceability, acousticness, energy, liveness, loudness, speechiness, tempo, valence)
+VALUES ('exciting', 0.445150, 0.100985, 0.841050, 0.241790, -4.937400, 0.081880, 136.876950, 0.492995);
+INSERT INTO impression_norm (word, danceability, acousticness, energy, liveness, loudness, speechiness, tempo, valence)
+VALUES ('vigorous', 0.538909, 0.091223, 0.875727, 0.255255, -4.031773, 0.081364, 134.460545, 0.537900);
