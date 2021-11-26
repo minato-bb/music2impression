@@ -6,7 +6,7 @@ import norm_copy
 # python Impression2music/main_norm.py music_impression -i 曲名
 
 def music_impression(name):
-    word = ["dignified","sad","sentimental","calm","graceful","happy","exciting","vigorous"]
+    word = ["cool", "relax", "excited", "sad", "fierce"]
     if name not in word:
         norm_copy.distance(name)
     else:
