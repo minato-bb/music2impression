@@ -6,14 +6,14 @@ import os
 import cv2
 
 def movie2impression():
-    color_image_scale = pd.read_csv("/Data/csv/color_img_scale.csv", index_col="Unnamed: 0")
-    color_ = pd.read_csv('/Data/csv/color.csv', index_col='Hue/Tone')
+    color_image_scale = pd.read_csv("Data/csv/color_img_scale.csv", index_col="Unnamed: 0")
+    color_ = pd.read_csv('Data/csv/color.csv', index_col='Hue/Tone')
     color = color_.drop(["color","h", "s", "v", "L", "a", "b"], axis =1)
 
-    image_path = "/Data/Img/"
+    image_path = "Data/Img/"
     dir_name = os.listdir(image_path)
 
-    target_dir ='/Data/Img/frame/'
+    target_dir ='Data/Img/frame/'
     v = os.listdir(target_dir)
 
     movie_image = []#フレーム毎に最も割合の多い3色
