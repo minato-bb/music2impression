@@ -4,6 +4,7 @@ from pandas import plotting
 from scipy.spatial import distance
 import os
 import cv2
+from tqdm import tqdm
 
 def movie2impression():
     color_image_scale = pd.read_csv("Data/csv/color_img_scale.csv", index_col="Unnamed: 0")
@@ -17,8 +18,8 @@ def movie2impression():
     v = os.listdir(target_dir)
 
     movie_image = []#フレーム毎に最も割合の多い3色
-
-    for n in range(len(v)-1):
+    print("画像から印象語変換")
+    for n in tqdm(range(len(v)-1)):
         num1 = 0
         num2 = 0
         num3 = 0

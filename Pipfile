@@ -9,6 +9,7 @@ spotipy = "*"
 pandas = "*"
 gensim = "*"
 opencv-python = "*"
+tqdm = "*"
 
 [dev-packages]
 
