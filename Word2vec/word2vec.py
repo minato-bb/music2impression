@@ -2,7 +2,7 @@ from gensim.models import word2vec
 import pandas as pd
 
 def vector(word):
-    df = pd.read_csv("Data/csv/color_img_scale.csv")
+    df = pd.read_csv("Data/csv/color_image_rgb.csv")
     color_imp = []
     for i in df["Unnamed: 0"]:
         color_imp.append(i)

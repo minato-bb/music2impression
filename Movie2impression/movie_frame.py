@@ -1,5 +1,6 @@
 import cv2
 import os
+from tqdm import tqdm
 
 #動画から画像を取得
 def split_frames():
@@ -24,7 +25,8 @@ def split_frames():
 
     n_ = 0
     ext='jpg'
-    for n in range(0, int(cap.get(cv2.CAP_PROP_FRAME_COUNT)), round(fps/10)):
+    print("フレーム分割")
+    for n in tqdm(range(0, int(cap.get(cv2.CAP_PROP_FRAME_COUNT)), round(fps/10))):
         cap.set(cv2.CAP_PROP_POS_FRAMES, n)
         ret, frame = cap.read()
         if ret:
