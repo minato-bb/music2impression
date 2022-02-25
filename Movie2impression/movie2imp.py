@@ -19,7 +19,7 @@ def movie2impression():
 
     movie_image = []#フレーム毎に最も割合の多い3色
     print("画像の枚数分計算する")
-    for n in range(len(v)):
+    for n in range(len(v)-1):
         num1 = 0
         num2 = 0
         num3 = 0
