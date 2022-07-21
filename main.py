@@ -10,8 +10,7 @@ word = movie2imp.movie2impression()
 print("動画の印象語", word)
 
 #Word2vec
-impression = word2vec.vector(word)
-print(impression)
+b = word2vec.vector(word)
 
 #印象語から音楽を推薦
-main_norm.music_impression(impression)
+main_norm.music_impression(b)

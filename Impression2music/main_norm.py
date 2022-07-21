@@ -4,11 +4,11 @@ from Impression2music import norm
 #内積計算
 # python Impression2music/main_norm.py music_impression -i 曲名
 
-def music_impression(name):
+def music_impression(b):
 
-    norm.distance(name)
+    norm.distance(b)
     
-    return #name(印象語)を与えると最も近い曲を返す
+    return 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

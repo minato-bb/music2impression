@@ -1,24 +1,38 @@
 import psycopg2
 
-def distance(name):
+def distance(b):
     conn = psycopg2.connect("host=" + "localhost" +
                             " dbname=" + "fc" +
                             " user=" + "babaminato" +
                             " password=" + "")
     cur = conn.cursor()
+
+    cur.execute("drop table target")
+    conn.commit()
+    cur.execute("CREATE TABLE target (danceability float, acousticness float, energy float, liveness float, loudness float, speechiness float, tempo float, valence float)")
+    conn.commit()
+
     cur.execute("SELECT * FROM music")
     m = cur.fetchall()
     conn.commit()
     print("The number of music is ", len(m))
     conn.commit()
-    cur.execute("SELECT music.name, music.artist, distance(music.danceability, music.acousticness, music.energy, music.liveness, music.loudness, music.speechiness, music.tempo, music.valence, impression_norm.danceability, impression_norm.acousticness, impression_norm.energy, impression_norm.liveness, impression_norm.loudness, impression_norm.speechiness, impression_norm.tempo, impression_norm.valence) AS score FROM music, impression_norm WHERE impression_norm.word = '{}' ORDER BY score ASC FETCH FIRST 1 ROWS ONLY".format(name))
+
+    cur.execute("INSERT INTO target (danceability, acousticness, energy, liveness, loudness, speechiness, tempo, valence) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", [b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7]])
+    conn.commit()
+
+    cur.execute("SELECT * FROM target")
+    l = cur.fetchall()
+    conn.commit()
+    print(l)
+
+    cur.execute("SELECT music.name, music.artist, distance(music.danceability, music.acousticness, music.energy, music.liveness, music.loudness, music.speechiness, music.tempo, music.valence, target.danceability, target.acousticness, target.energy, target.liveness, target.loudness, target.speechiness, target.tempo, target.valence) AS score FROM music, target ORDER BY score ASC FETCH FIRST 10 ROWS ONLY")
     n = cur.fetchall()
     conn.commit()
     print()
-    print(name)
-    for n_ in n:
-        print(n_)
-    print()
+    for i in n:
+        print(i)
+
     cur.close()
     conn.close()
 
