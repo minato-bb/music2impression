@@ -16,7 +16,8 @@ def movie2impression():
 
     target_dir ='Data/Img/frame/'
     v = os.listdir(target_dir)
-
+    print(v[1])
+    
     movie_image = []#フレーム毎に最も割合の多い3色
     print("画像の枚数分計算する")
     for n in range(len(v)-1):
@@ -29,9 +30,9 @@ def movie2impression():
         f3 = []
 
         #ターゲット画像
-        target_file = "img_{}.jpg".format(n)
-        print(target_file)
-        target_img_path = target_dir + target_file
+        # target_file = "img_{}.jpeg".format(n)
+        # target_img_path = target_dir + target_file
+        target_img_path = target_dir + v[1]
 
         #画像読み込み
         img_ = cv2.imread(target_img_path)
@@ -44,6 +45,7 @@ def movie2impression():
             dst = cv2.resize(img, dsize=(width, height))
 
             return dst
+
         img = scale_to_width(img_, 70)
 
         #RGB値化

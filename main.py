@@ -7,7 +7,7 @@ from Impression2music import main_norm
 
 #動画から印象語を選定
 word = movie2imp.movie2impression()
-print("動画の印象語", word)
+print("画像の印象語", word)
 
 #Word2vec
 b = word2vec.vector(word)

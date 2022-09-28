@@ -7,6 +7,7 @@ def distance(b):
                             " password=" + "")
     cur = conn.cursor()
 
+    # targetテーブル作成
     cur.execute("drop table target")
     conn.commit()
     cur.execute("CREATE TABLE target (danceability float, acousticness float, energy float, liveness float, loudness float, speechiness float, tempo float, valence float)")
@@ -18,13 +19,14 @@ def distance(b):
     print("The number of music is ", len(m))
     conn.commit()
 
+    #targetにデータ挿入
     cur.execute("INSERT INTO target (danceability, acousticness, energy, liveness, loudness, speechiness, tempo, valence) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", [b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7]])
     conn.commit()
-
     cur.execute("SELECT * FROM target")
     l = cur.fetchall()
     conn.commit()
     print(l)
+
 
     cur.execute("SELECT music.name, music.artist, distance(music.danceability, music.acousticness, music.energy, music.liveness, music.loudness, music.speechiness, music.tempo, music.valence, target.danceability, target.acousticness, target.energy, target.liveness, target.loudness, target.speechiness, target.tempo, target.valence) AS score FROM music, target ORDER BY score ASC FETCH FIRST 10 ROWS ONLY")
     n = cur.fetchall()
