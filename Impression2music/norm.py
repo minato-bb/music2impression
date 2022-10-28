@@ -28,14 +28,11 @@ def distance(b):
     print(l)
 
 
-    cur.execute("SELECT music.name, music.artist, distance(music.danceability, music.acousticness, music.energy, music.liveness, music.loudness, music.speechiness, music.tempo, music.valence, target.danceability, target.acousticness, target.energy, target.liveness, target.loudness, target.speechiness, target.tempo, target.valence) AS score FROM music, target ORDER BY score ASC FETCH FIRST 10 ROWS ONLY")
+    cur.execute("SELECT music.name, music.artist, distance(music.danceability, music.acousticness, music.energy, music.liveness, music.loudness, music.speechiness, music.tempo, music.valence, target.danceability, target.acousticness, target.energy, target.liveness, target.loudness, target.speechiness, target.tempo, target.valence) AS score FROM music, target ORDER BY score ASC FETCH FIRST 5 ROWS ONLY")
     n = cur.fetchall()
     conn.commit()
-    print()
-    for i in n:
-        print(i)
 
     cur.close()
     conn.close()
 
-    return
+    return n

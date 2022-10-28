@@ -6,9 +6,9 @@ from Impression2music import norm
 
 def music_impression(b):
 
-    norm.distance(b)
+    n = norm.distance(b)
     
-    return 
+    return n
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

@@ -11,6 +11,7 @@ gensim = "*"
 opencv-python = "*"
 tqdm = "*"
 flask = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 

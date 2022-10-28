@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <h1>検索結果</h1>
+   
+    <img src="/Data/images/img_0.jpeg">
+
+    <table class="table">
+
+        <thead>
+        <tr>
+            <th scope="col">楽曲名</th>
+            <th scope="col">アーテ1ィスト名</th>
+        </tr>
+        </thead>
+
+        {% for data in music %}
+        <tbody>
+            <tr>
+            <th scope="row">{{ data[0] }}</th>
+            <td>{{ data[1] }}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+
+    <p><a href="/back">情報のリセット&入力画面へ</a></p>
+{% endblock %}

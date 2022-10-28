@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>画像メディアコンテンツを対象とした色彩特徴による印象に合致した自動音楽推薦方式</h1>
+
+    <h2><br>それぞれの印象語と合致すると考えられる楽曲を入力</h2>
+
+    <form action="/serch_music" method="POST">
+        <p>dignified(威厳のある)</p>
+            <div class="mb-3">   
+                <input type="text" name="music_name_dignified" class="form-control" id="exampleFormControlInput1" placeholder="曲名を入力してください">
+                <input type="text" name="artist_name_dignified" class="form-control" id="exampleFormControlInput1" placeholder="アーティスト名を入力してください">    
+            </div>
+
+        <p><br>sad(悲しい)</p>
+        <form action="/serch_music" method="POST">
+            <div class="mb-3">   
+                <input type="text" name="music_name_sad" class="form-control" id="exampleFormControlInput1" placeholder="曲名を入力してください">
+                <input type="text" name="artist_name_sad" class="form-control" id="exampleFormControlInput1" placeholder="アーティスト名を入力してください">    
+            </div>
+
+
+        <p><br>sentimental(哀愁のある)</p>
+        <form action="/serch_music" method="POST">
+            <div class="mb-3">   
+                <input type="text" name="music_name_sentimental" class="form-control" id="exampleFormControlInput1" placeholder="曲名を入力してください">
+                <input type="text" name="artist_name_sentimental" class="form-control" id="exampleFormControlInput1" placeholder="アーティスト名を入力してください">    
+            </div>
+
+
+        <p><br>calm(落ち着いた)</p>
+        <form action="/serch_music" method="POST">
+            <div class="mb-3">   
+                <input type="text" name="music_name_calm" class="form-control" id="exampleFormControlInput1" placeholder="曲名を入力してください">
+                <input type="text" name="artist_name_calm" class="form-control" id="exampleFormControlInput1" placeholder="アーティスト名を入力してください">    
+            </div>
+
+
+        <p><br>graceful(優美な)</p>
+        <form action="/serch_music" method="POST">
+            <div class="mb-3">   
+                <input type="text" name="music_name_graceful" class="form-control" id="exampleFormControlInput1" placeholder="曲名を入力してください">
+                <input type="text" name="artist_name_graceful" class="form-control" id="exampleFormControlInput1" placeholder="アーティスト名を入力してください">    
+            </div>
+
+
+        <p><br>happy(楽しい)</p>
+        <form action="/serch_music" method="POST">
+            <div class="mb-3">   
+                <input type="text" name="music_name_happy" class="form-control" id="exampleFormControlInput1" placeholder="曲名を入力してください">
+                <input type="text" name="artist_name_happy" class="form-control" id="exampleFormControlInput1" placeholder="アーティスト名を入力してください">    
+            </div>
+
+
+        <p><br>exciting(興奮する)</p>
+        <form action="/serch_music" method="POST">
+            <div class="mb-3">   
+                <input type="text" name="music_name_exciting" class="form-control" id="exampleFormControlInput1" placeholder="曲名を入力してください">
+                <input type="text" name="artist_name_exciting" class="form-control" id="exampleFormControlInput1" placeholder="アーティスト名を入力してください">    
+            </div>
+
+
+        <p><br>vigorous(活発な)</p>
+        <form action="/serch_music" method="POST">
+            <div class="mb-3">   
+                <input type="text" name="music_name_vigorous" class="form-control" id="exampleFormControlInput1" placeholder="曲名を入力してください">
+                <input type="text" name="artist_name_vigorous" class="form-control" id="exampleFormControlInput1" placeholder="アーティスト名を入力してください">    
+            </div>
+
+        <div class="col-auto">
+            <button type="submit" value="search" class="btn btn-primary mb-3">実行</button>
+        </div>
+    </form>
+
+{% endblock %}
+
+<!-- FLASK_APP=myapp.py FLASK_ENV=development flask run -->
+
+
+
+<!-- COPY music(name, artist) TO '/Users/babaminato/music2impression/Data/csv/music.csv' With CSV DELIMITER ','; -->
+<!-- psql -U babaminato -h localhost fc -H -c 'select name, artist from music' -o /Users/babaminato/music2impression/templates/music.html -->

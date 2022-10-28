@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <h1>この情報から楽曲検索を行います</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">印象語</th>
+            <th scope="col">楽曲名</th>
+            <th scope="col">アーティスト名</th>
+        </tr>
+        </thead>
+
+        {% for data in data %}
+        <tbody>
+            <tr>
+            <th scope="row">{{ data[0] }}</th>
+            <td>{{ data[1] }}</td>
+            <td>{{ data[2] }}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+
+    <p><a href="/result">実行</a></p>
+    <p><a href="/back">やり直す</a></p>
+
+{% endblock %}

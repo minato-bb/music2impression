@@ -9,9 +9,12 @@ def getTrackIDs(user, playlist_id):
     client_secret = '0c3cfec97b36433e96b666d6e7a3b00a'
 
     client_credentials_manager = spotipy.oauth2.SpotifyClientCredentials(client_id, client_secret)
+
     spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-    client_credentials_manager = SpotifyClientCredentials(client_id, client_secret)
-    sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+
+    # client_credentials_manager = SpotifyClientCredentials(client_id, client_secret)
+
+    sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager, language='ja')
 
     playlist = sp.user_playlist(user, playlist_id)
     while playlist['tracks']['next']:
@@ -31,7 +34,7 @@ def getTrackFeatures(id):
     client_id = 'b9fe370636f84fd0842758f0d48fd6d7'
     client_secret = '0c3cfec97b36433e96b666d6e7a3b00a'
     client_credentials_manager = SpotifyClientCredentials(client_id, client_secret)
-    sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+    sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager, language='ja')
 
     meta = sp.track(id)
     features = sp.audio_features(id)
@@ -58,6 +61,8 @@ def make_df(ids):
         time.sleep(.5)
         track = getTrackFeatures(ids[i])
         tracks.append(track)
+        if i % 100 == 0:
+            print(i)
 
     df = pd.DataFrame(tracks, columns = ['name', 'artist', 'danceability', 'acousticness', 'energy', 'liveness', 'loudness', 'speechiness', 'tempo', 'valence'])
     
