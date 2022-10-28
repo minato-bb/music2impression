@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 import psycopg2
 import main
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='templates/images')
 
 @app.route("/")
 def hello_world():

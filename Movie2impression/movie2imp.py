@@ -11,10 +11,10 @@ def movie2impression():
     color_ = pd.read_csv('Data/csv/color.csv', index_col='Hue/Tone')
     color = color_.drop(["color","h", "s", "v", "L", "a", "b"], axis =1)
 
-    image_path = "Data/img/"
+    image_path = "templates/images/"
     dir_name = os.listdir(image_path)
 
-    target_dir ='Data/Img/frame/'
+    target_dir ='templates/images/'
     v = os.listdir(target_dir)
     
     movie_image = []#フレーム毎に最も割合の多い3色
@@ -30,7 +30,8 @@ def movie2impression():
 
     #ターゲット画像
     target_file = os.listdir(target_dir)
-    target_img_path = target_dir + target_file[1]
+    print(target_file)
+    target_img_path = target_dir + target_file[0]
 
     #画像読み込み
     img_ = cv2.imread(target_img_path)
