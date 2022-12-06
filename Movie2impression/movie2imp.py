@@ -18,7 +18,6 @@ def movie2impression():
     v = os.listdir(target_dir)
     
     movie_image = []#フレーム毎に最も割合の多い3色
-    print("画像の枚数分計算する")
 
     num1 = 0
     num2 = 0
@@ -30,7 +29,6 @@ def movie2impression():
 
     #ターゲット画像
     target_file = os.listdir(target_dir)
-    print(target_file)
     target_img_path = target_dir + target_file[0]
 
     #画像読み込み
@@ -44,7 +42,7 @@ def movie2impression():
         dst = cv2.resize(img, dsize=(width, height))
 
         return dst
-    img = scale_to_width(img_, 70)
+    img = scale_to_width(img_, 450)
 
     #RGB値化
     target_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -63,14 +61,17 @@ def movie2impression():
 
 
     #130色から最も近い色を算出
-    pixel = []
-    for i in tqdm(range(0, len(df))):
-        pixel_dict = {n : np.linalg.norm(df.iloc[i] - color.iloc[n]) for n in range(0, len(color))}
-        pixel.append(min(pixel_dict, key=pixel_dict.get))
+    a = df.values
+    b = color.values
+
+    ia, ib = np.meshgrid(np.arange(a.shape[0]), np.arange(b.shape[0]))
+    distance = np.linalg.norm(a[ia]-b[ib], axis=2)
+
+    pixel = np.argmin(distance, axis=0)
 
 
     #130色のうち最も近い色に置換
-    for num, i in enumerate(pixel):
+    for num, i in tqdm(enumerate(pixel)):
         df.iloc[num] = color.iloc[i]
 
     #置換後のdf設定

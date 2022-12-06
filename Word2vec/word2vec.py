@@ -31,7 +31,6 @@ def vector(word):
     weight = np.array([])
     for i in music_imp:
         weight = np.append(weight, (model_music.wv.similarity(word, i)))
-    print(weight)
 
     # a = np.array([[0.398357, 0.655872, 0.42245, 0.160421, -12.044429, 0.066843, 107.533857, 0.3091],
     #                 [0.541389, 0.447167, 0.522511, 0.139822, -8.4815, 0.037811, 105.3725, 0.428417],
