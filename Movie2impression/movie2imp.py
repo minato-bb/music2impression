@@ -42,7 +42,7 @@ def movie2impression():
         dst = cv2.resize(img, dsize=(width, height))
 
         return dst
-    img = scale_to_width(img_, 450)
+    img = scale_to_width(img_, 200)
 
     #RGB値化
     target_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)

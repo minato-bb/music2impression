@@ -10,7 +10,7 @@ def main():
 
     #Word2vec
     b = word2vec.vector(word)
-
+    
     return main_norm.music_impression(b) #印象語から音楽を推薦
 
 # psql -U babaminato -A -F, -c "select music, artist from music" fc > /Users/babaminato/music2impression/Data/csv/music.csv

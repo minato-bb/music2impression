@@ -2,12 +2,15 @@
 from flask import Flask, render_template, request
 import psycopg2
 import main
+import update
+import pandas as pd
 
 app = Flask(__name__, static_folder='templates/images')
 
 @app.route("/")
 def hello_world():
-    return render_template("index.html")
+    # return render_template("index.html")
+    return render_template("index2.html")
 
 
 @app.route("/serch_music", methods=["POST"])
@@ -36,11 +39,45 @@ def img2music():
     return render_template("img2music.html", data = data)
 
 
-@app.route("/result")
+@app.route("/result", methods=["POST"])
 def result():
     music = main.main()
     return render_template("result.html", music = music)
 
+
+@app.route("/update", methods=["POST"])
+def update():
+    word = request.form["imp_word"]
+    m_name = request.form["name"]
+    m_artist = request.form["artist"]
+
+    conn = psycopg2.connect("host=" + "localhost" +
+                            " dbname=" + "fc" +
+                            " user=" + "babaminato" +
+                            " password=" + "")
+    cur = conn.cursor()
+    query = 'SELECT * FROM impression_norm'
+    df_sql = pd.read_sql(query, index_col="word", con=conn)
+    
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM music where name = '{}' and artist ='{}'".format(m_name, m_artist))
+    m = cur.fetchall()
+    conn.commit()
+
+    target = []
+    fig = df_sql.loc[word]
+    for i in m:
+        for data in i:
+            target.append(data)
+    
+    data =target[2:]
+    update = (data + fig)/2
+
+    cur.execute("update test_update set danceability={}, acousticness={}, energy={}, liveness={}, loudness={}, speechiness={}, tempo={}, valence={} where word='{}'".format(update[0], update[1], update[2], update[3], update[4], update[5], update[6], update[7], word))
+    conn.commit()
+    cur.close()
+    conn.close()
+    return render_template("update.html")
 
 @app.route("/back")
 def back():

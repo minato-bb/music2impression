@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>画像メディアコンテンツを対象とした色彩特徴による印象に合致した自動音楽推薦方式</h1>
+
+    <h2><br>入力した画像からその印象語と合致すると考えられる楽曲を推薦</h2>
+    <form action="/result" method="POST">
+        <div class="col-auto">
+            <button type="submit" value="search" class="btn btn-primary mb-3">実行</button>
+        </div>
+    </form>
+
+{% endblock %}
+
+<!-- FLASK_APP=myapp.py FLASK_ENV=development flask run -->
+
+
+
+<!-- COPY music(name, artist) TO '/Users/babaminato/music2impression/Data/csv/music.csv' With CSV DELIMITER ','; -->
+<!-- psql -U babaminato -h localhost fc -H -c 'select name, artist from music' -o /Users/babaminato/music2impression/templates/music.html -->

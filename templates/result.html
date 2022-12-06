@@ -23,6 +23,19 @@
     </table>
 
     <p><img src="images/img_0.jpg" width="50%" height="50%">入力した画像</p>
+    
+    <form action="/update" method="POST">
+        <h2>評価</h2>
+        <p>この画像に最も当てはまる印象語と適当な楽曲を推薦された楽曲から選択してください※他に楽曲の候補がある場合はそちらでも可</p>
+            <div class="mb-3">   
+                <input type="text" name="imp_word" class="form-control" id="exampleFormControlInput1" placeholder="印象語リスト「威厳のある, 悲しい, 哀愁のある, 落ち着いた, 優美な, 楽しい, 興奮する, 活発な」">
+                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="楽曲名を入力してください"> 
+                <input type="text" name="artist" class="form-control" id="exampleFormControlInput1" placeholder="アーティスト名を入力してください">   
+            </div>
 
+            <div class="col-auto">
+                <button type="submit" value="search" class="btn btn-primary mb-3">実行</button>
+            </div>
+    </form>
     <p><a href="/back">情報のリセット&入力画面へ</a></p>
 {% endblock %}
