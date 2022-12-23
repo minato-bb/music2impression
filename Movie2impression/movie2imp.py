@@ -11,8 +11,6 @@ def movie2impression():
     color_ = pd.read_csv('Data/csv/color.csv', index_col='Hue/Tone')
     color = color_.drop(["color","h", "s", "v", "L", "a", "b"], axis =1)
 
-    image_path = "templates/images/"
-    dir_name = os.listdir(image_path)
 
     target_dir ='templates/images/'
     v = os.listdir(target_dir)
@@ -28,8 +26,7 @@ def movie2impression():
     f3 = []
 
     #ターゲット画像
-    target_file = os.listdir(target_dir)
-    target_img_path = target_dir + target_file[0]
+    target_img_path = 'templates/images/img_0.jpeg'
 
     #画像読み込み
     img_ = cv2.imread(target_img_path)

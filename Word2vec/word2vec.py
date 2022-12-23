@@ -9,8 +9,8 @@ def vector(word):
                             " user=" + "babaminato" +
                             " password=" + "")
     cur = conn.cursor()
-    # query = 'SELECT * FROM impression_norm_test'
     query = 'SELECT * FROM impression_norm'
+    # query = 'SELECT * FROM test_7'
     df_sql = pd.read_sql(query, con=conn)
     # a = df_sql.values
     a = df_sql.values

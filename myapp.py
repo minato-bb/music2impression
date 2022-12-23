@@ -73,11 +73,14 @@ def update():
     data =target[2:]
     update = (data + fig)/2
 
-    cur.execute("update test_update set danceability={}, acousticness={}, energy={}, liveness={}, loudness={}, speechiness={}, tempo={}, valence={} where word='{}'".format(update[0], update[1], update[2], update[3], update[4], update[5], update[6], update[7], word))
+
+    #ここを変更
+    cur.execute("update test_7 set danceability={}, acousticness={}, energy={}, liveness={}, loudness={}, speechiness={}, tempo={}, valence={} where word='{}'".format(update[0], update[1], update[2], update[3], update[4], update[5], update[6], update[7], word))
     conn.commit()
     cur.close()
     conn.close()
     return render_template("update.html")
+
 
 @app.route("/back")
 def back():

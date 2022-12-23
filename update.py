@@ -7,7 +7,8 @@ def update(im_word, m_name, m_artist):
                             " user=" + "babaminato" +
                             " password=" + "")
     cur = conn.cursor()
-    query = 'SELECT * FROM impression_norm'
+    # query = 'SELECT * FROM impression_norm'
+    query = 'SELECT * FROM test_update'
     df_sql = pd.read_sql(query, index_col="word", con=conn)
     
     cur = conn.cursor()
